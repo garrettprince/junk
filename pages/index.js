@@ -1,6 +1,11 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { useState, useEffect } from "react";
+import { supabase } from "../utils/client";
 
 export default function Home() {
+  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState({ title: "", content: "" });
+
   return (
     <div>
       <Head>
@@ -8,5 +13,5 @@ export default function Home() {
       </Head>
       <main>Test</main>
     </div>
-  )
+  );
 }
