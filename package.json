@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@supabase/supabase-js": "^1.35.4",
     "formik": "^2.2.9",
     "next": "12.2.1",
