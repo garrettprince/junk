@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
+import { supabase } from "../utils/client";
 
 function AddCardModal() {
   return (
