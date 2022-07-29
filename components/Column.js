@@ -5,7 +5,7 @@ import AddCardModal from "./AddCardModal";
 
 function Column({ name, cards }) {
   return (
-    <div className="flex-col h-full bg-gray-300/40 rounded-[2rem] mx-4">
+    <div className="flex-col h-full bg-gray-300/40 rounded-[2rem] mx-4 min-w-[23rem] min-h-[7rem] mt-10">
       <header className="flex justify-between mx-7 mt-4">
         <h1 className="text-3xl font-bold">{name}</h1>
         <div className="flex items-center space-x-4">

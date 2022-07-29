@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { PlusIcon } from "@heroicons/react/solid";
 import AddCardModal from "./AddCardModal";
 import Column from "./Column";
+import { Dialog, Transition } from "@headlessui/react";
 
 const columns = [
   { name: "Not Started" },
@@ -43,11 +44,23 @@ const mockCards = [
     urgent: true,
     status: statusTypes.COMPLETED,
   },
+  {
+    title: "Test4",
+    description: "Another test",
+    category: "Other",
+    dueDate: "9/1",
+    minutesDuration: "45",
+    urgent: true,
+    status: statusTypes.COMPLETED,
+  },
 ];
 
 function KanbanContainer() {
   const [isOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState(mockCards);
+
+  const closeModal = () => setIsOpen(false);
+  const openModal = () => setIsOpen(true);
 
   const addCard = (card) => {
     setCards([...cards, card]);
@@ -64,13 +77,22 @@ function KanbanContainer() {
           />
         ))}
       </section>
+
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="rounded-full p-3 bg-gray-300/40"
+        onClick={openModal}
+        className="rounded-full p-4 bg-gray-300/40 absolute bottom-0 left-0 m-10"
       >
         <PlusIcon className="h-10 w-10" />
       </button>
-      {isOpen && <AddCardModal addCard={addCard} />}
+
+      {isOpen && (
+        <div className="fixed bg-black/40 inset-0 h-full w-full flex justify-center align-middle">
+            <AddCardModal
+              addCard={addCard}
+              handleClose={closeModal}
+            />
+        </div>
+      )}
     </>
   );
 }
