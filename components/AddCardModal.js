@@ -35,19 +35,19 @@ function AddCardModal({ addCard, handleClose }) {
         }}
       >
         {({ values, errors, touched, dirty }) => (
-          <Form className="flex-col">
+          <Form className="flex-col mx-4">
             <Field
               type="text"
               name="title"
               placeholder="Title"
-              className="mb-3 px-4 py-2 bg-transparent rounded-2xl w-full text-2xl font-bold focus:outline-none"
+              className="mb-3 py-2 border-b-2 border-transparent bg-transparent w-full text-2xl font-bold focus:outline-none focus:border-gray-300"
             />
             <Field
               as="textarea"
               type="description"
               name="description"
               placeholder="Description"
-              className="mb-3 px-4 py-2 bg-transparent rounded-2xl w-full h-32 focus:outline-none resize-none"
+              className="mb-3 py-2  bg-transparent  w-full h-20 focus:outline-none resize-none border-b-2 border-transparent focus:border-gray-300"
             />
             <div className="flex justify-between space-x-4 mb-3">
               <Field
@@ -55,7 +55,7 @@ function AddCardModal({ addCard, handleClose }) {
                 type="text"
                 name="status"
                 placeholder="Status"
-                className="flex-1 px-4 py-2 bg-transparent rounded-2xl focus:outline-none"
+                className="flex-1 font-bold bg-transparent focus:outline-none border-b-2 border-transparent focus:border-gray-300"
               >
                 <option value="notstarted">Not Started</option>
                 <option value="inprogress">In Progress</option>
@@ -76,11 +76,19 @@ function AddCardModal({ addCard, handleClose }) {
             />
             <div>
               <Field
+                as="select"
                 type="number"
                 name="duration"
                 placeholder="Duration (In Minutes)"
                 className="px-4 py-2 bg-transparent rounded-2xl focus:outline-none"
-              />
+              >
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <option value="60">60</option>
+                <option value="90">90</option>
+                <option value="120">120</option>
+              </Field>
             </div>
             <div>
               <Field
@@ -104,9 +112,9 @@ function AddCardModal({ addCard, handleClose }) {
               </Switch>
             </div>
             <button
-              className="disabled:text-gray-300 disabled:border-gray-300 border-2 rounded-full py-1 px-2 border-black hover:bg-black hover:text-white transition"
+              className="flex align-right border-2 rounded-full py-1 px-6 border-black bg-black text-white  transition transform hover:scale-105 duration-100 active:scale-95 ease-in-out font-bold disabled:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:text-white disabled:border-gray-300"
               disabled={!dirty}
-              // onClick={handleClose && submit}
+              onSubmit={handleClose}
             >
               Create
             </button>

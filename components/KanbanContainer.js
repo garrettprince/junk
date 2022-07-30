@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { PlusIcon } from "@heroicons/react/solid";
 import AddCardModal from "./AddCardModal";
 import Column from "./Column";
-import { Dialog, Transition } from "@headlessui/react";
+import { motion } from "framer-motion";
 
 const columns = [
   { name: "Not Started" },
@@ -22,7 +22,7 @@ const mockCards = [
     description: "Test description",
     category: "Dev",
     dueDate: "8/11",
-    minutesDuration: "30",
+    duration: "30",
     urgent: false,
     status: statusTypes.IN_PROGRESS,
   },
@@ -31,7 +31,7 @@ const mockCards = [
     description: "Another test",
     category: "Other",
     dueDate: "9/1",
-    minutesDuration: "45",
+    duration: "45",
     urgent: true,
     status: statusTypes.COMPLETED,
   },
@@ -40,7 +40,7 @@ const mockCards = [
     description: "Another test",
     category: "Other",
     dueDate: "9/1",
-    minutesDuration: "45",
+    duration: "45",
     urgent: true,
     status: statusTypes.COMPLETED,
   },
@@ -49,7 +49,7 @@ const mockCards = [
     description: "Another test",
     category: "Other",
     dueDate: "9/1",
-    minutesDuration: "45",
+    duration: "45",
     urgent: true,
     status: statusTypes.COMPLETED,
   },
@@ -80,18 +80,21 @@ function KanbanContainer() {
 
       <button
         onClick={openModal}
-        className="rounded-full p-4 bg-gray-300/40 absolute bottom-0 left-0 m-10"
+        className="rounded-full p-4 bg-gray-100 absolute bottom-0 left-0 m-10 transition ease-in-out transform duration-100 hover:scale-105 active:scale-95"
       >
         <PlusIcon className="h-10 w-10" />
       </button>
 
       {isOpen && (
-        <div className="fixed bg-black/40 inset-0 h-full w-full flex justify-center align-middle">
-            <AddCardModal
-              addCard={addCard}
-              handleClose={closeModal}
-            />
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          transition={{ duration: 3.8, type: 'spring', damping: 25, stiffness: 500 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed bg-black/50 inset-0 h-full w-full flex justify-center align-middle"
+        >
+          <AddCardModal addCard={addCard} handleClose={closeModal} />
+        </motion.div>
       )}
     </>
   );

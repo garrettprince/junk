@@ -6,7 +6,7 @@ function Card({
   description,
   category,
   dueDate,
-  minutesDuration,
+  duration,
   urgent,
 }) {
   return (
@@ -31,7 +31,7 @@ function Card({
         </div>
         <div className="flex-col ml-3 mr-1 leading-4">
           <h2 className="flex font-black text-green-500 justify-center">
-            {minutesDuration}
+            {duration}
           </h2>
           <h2 className="flex text-xs font-black text-green-500">MIN</h2>
         </div>
