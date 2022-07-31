@@ -41,14 +41,14 @@ function AddCardModal({ addCard, handleClose }) {
               type="text"
               name="title"
               placeholder="Title"
-              className="mb-3 py-2 border-b-2 border-transparent bg-transparent w-full text-2xl font-bold focus:outline-none focus:border-gray-300"
+              className="mb-3 py-2 border-b-2 border-transparent bg-transparent w-full text-2xl font-bold focus:outline-none "
             />
             <Field
               as="textarea"
               type="description"
               name="description"
               placeholder="Description"
-              className="mb-3 py-2  bg-transparent  w-full h-20 focus:outline-none resize-none border-b-2 border-transparent focus:border-gray-300"
+              className="mb-3 py-2 pl-3 bg-transparent w-full h-20 focus:outline-none resize-none border-b-2 border-transparent rounded-xl focus:bg-gray-200"
             />
             <section className="">
               <div className="flex justify-between space-x-4 mb-3">
@@ -86,15 +86,36 @@ function AddCardModal({ addCard, handleClose }) {
                 <section className="flex justify-between py-3 px-2 ">
                   <CategoryButton
                     name="Dev"
-                    style={{ backgroundColor: "rgb(249, 115, 22)" }}
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
                   />
-                  <CategoryButton name="Design" />
-                  <div className="rounded-full bg-lime-500 h-5 w-5 cursor-pointer"></div>
-                  <div className="rounded-full bg-emerald-500 h-5 w-5 cursor-pointer"></div>
-                  <div className="rounded-full bg-cyan-500 h-5 w-5 cursor-pointer"></div>
-                  <div className="rounded-full bg-blue-500 h-5 w-5 cursor-pointer"></div>
-                  <div className="rounded-full bg-purple-500 h-5 w-5 cursor-pointer"></div>
-                  <div className="rounded-full bg-pink-500 h-5 w-5 cursor-pointer"></div>
+                  <CategoryButton
+                    name="Design"
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
+                  <CategoryButton
+                    name="Design"
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
+                  <CategoryButton
+                    name="Design"
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
+                  <CategoryButton
+                    name="Design"
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
+                  <CategoryButton
+                    name="Design"
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
+                  <CategoryButton
+                    name="Design"
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
+                  <CategoryButton
+                    name="Design"
+                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
                 </section>
               </div>
               <div>
