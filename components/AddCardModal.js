@@ -3,6 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { supabase } from "../utils/client";
 import { Switch } from "@headlessui/react";
 import { XIcon, QuestionMarkCircleIcon } from "@heroicons/react/solid";
+import CategoryButton from "./CategoryButton";
 
 function AddCardModal({ addCard, handleClose }) {
   const [enabled, setEnabled] = useState(false);
@@ -83,8 +84,11 @@ function AddCardModal({ addCard, handleClose }) {
                   className="bg-transparent rounded-2xl focus:outline-none"
                 />
                 <section className="flex justify-between py-3 px-2 ">
-                  <div className="rounded-full bg-orange-500 h-5 w-5 cursor-pointer"></div>
-                  <div className="rounded-full bg-yellow-500 h-5 w-5 cursor-pointer"></div>
+                  <CategoryButton
+                    name="Dev"
+                    style={{ backgroundColor: "rgb(249, 115, 22)" }}
+                  />
+                  <CategoryButton name="Design" />
                   <div className="rounded-full bg-lime-500 h-5 w-5 cursor-pointer"></div>
                   <div className="rounded-full bg-emerald-500 h-5 w-5 cursor-pointer"></div>
                   <div className="rounded-full bg-cyan-500 h-5 w-5 cursor-pointer"></div>
