@@ -9,9 +9,15 @@ import { categoryData, statusTypes } from "../utils/data";
 
 function AddCardModal({ addCard, handleClose }) {
   const [enabled, setEnabled] = useState(false);
+  const [category, setCategory] = useState({
+    borderColor: "transparent",
+  });
 
   return (
-    <motion.main className="my-auto transition rounded-2xl h-[625px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
+    <main
+      style={category}
+      className="my-auto transition rounded-3xl h-[625px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent"
+    >
       <header className="flex justify-between items-center mb-6">
         <div className="">
           <XIcon className="h-7 w-7 text-transparent" />
@@ -87,37 +93,61 @@ function AddCardModal({ addCard, handleClose }) {
                 />
                 <section className="flex justify-between py-3 px-1 mb-4 mt-1">
                   <CategoryButton
+                    key={categoryData.dev.title}
                     name={categoryData.dev.title}
                     color={{ backgroundColor: categoryData.dev.color }}
-                    onClick
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.dev.color })
+                    }
                   />
                   <CategoryButton
                     name={categoryData.design.title}
                     color={{ backgroundColor: categoryData.design.color }}
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.design.color })
+                    }
                   />
                   <CategoryButton
                     name={categoryData.lime.title}
                     color={{ backgroundColor: categoryData.lime.color }}
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.lime.color })
+                    }
                   />
                   <CategoryButton
                     name={categoryData.emerald.title}
                     color={{ backgroundColor: categoryData.emerald.color }}
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.emerald.color })
+                    }
                   />
                   <CategoryButton
                     name={categoryData.cyan.title}
                     color={{ backgroundColor: categoryData.cyan.color }}
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.cyan.color })
+                    }
                   />
                   <CategoryButton
                     name={categoryData.blue.title}
                     color={{ backgroundColor: categoryData.blue.color }}
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.blue.color })
+                    }
                   />
                   <CategoryButton
                     name={categoryData.purple.title}
                     color={{ backgroundColor: categoryData.purple.color }}
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.purple.color })
+                    }
                   />
                   <CategoryButton
                     name={categoryData.pink.title}
                     color={{ backgroundColor: categoryData.pink.color }}
+                    onClick={() =>
+                      setCategory({ borderColor: categoryData.pink.color })
+                    }
                   />
                 </section>
               </div>
@@ -184,7 +214,7 @@ function AddCardModal({ addCard, handleClose }) {
           </Form>
         )}
       </Formik>
-    </motion.main>
+    </main>
   );
 }
 
