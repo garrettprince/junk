@@ -5,6 +5,7 @@ import { Switch } from "@headlessui/react";
 import { XIcon, QuestionMarkCircleIcon } from "@heroicons/react/solid";
 import CategoryButton from "./CategoryButton";
 import { motion } from "framer-motion";
+import { categoryData, statusTypes } from "../utils/data";
 
 function AddCardModal({ addCard, handleClose }) {
   const [enabled, setEnabled] = useState(false);
@@ -86,36 +87,37 @@ function AddCardModal({ addCard, handleClose }) {
                 />
                 <section className="flex justify-between py-3 px-1 mb-4 mt-1">
                   <CategoryButton
-                    name="Dev"
-                    color={{ backgroundColor: "rgb(249, 115, 22)" }}
+                    name={categoryData.dev.title}
+                    color={{ backgroundColor: categoryData.dev.color }}
+                    onClick
                   />
                   <CategoryButton
-                    name="Design"
-                    color={{ backgroundColor: "rgb(234, 179, 8)" }}
+                    name={categoryData.design.title}
+                    color={{ backgroundColor: categoryData.design.color }}
                   />
                   <CategoryButton
-                    name="Lime"
-                    color={{ backgroundColor: "rgb(132, 204, 22)" }}
+                    name={categoryData.lime.title}
+                    color={{ backgroundColor: categoryData.lime.color }}
                   />
                   <CategoryButton
-                    name="Emerald"
-                    color={{ backgroundColor: "rgb(16, 185, 129)" }}
+                    name={categoryData.emerald.title}
+                    color={{ backgroundColor: categoryData.emerald.color }}
                   />
                   <CategoryButton
-                    name="Cyan"
-                    color={{ backgroundColor: "rgb(6, 182, 212)" }}
+                    name={categoryData.cyan.title}
+                    color={{ backgroundColor: categoryData.cyan.color }}
                   />
                   <CategoryButton
-                    name="Blue"
-                    color={{ backgroundColor: "rgb(59, 130, 246)" }}
+                    name={categoryData.blue.title}
+                    color={{ backgroundColor: categoryData.blue.color }}
                   />
                   <CategoryButton
-                    name="Purple"
-                    color={{ backgroundColor: "rgb(168, 85, 247)" }}
+                    name={categoryData.purple.title}
+                    color={{ backgroundColor: categoryData.purple.color }}
                   />
                   <CategoryButton
-                    name="Pink"
-                    color={{ backgroundColor: "rgb(236, 72, 153)" }}
+                    name={categoryData.pink.title}
+                    color={{ backgroundColor: categoryData.pink.color }}
                   />
                 </section>
               </div>
@@ -127,7 +129,7 @@ function AddCardModal({ addCard, handleClose }) {
                     type="number"
                     name="duration"
                     placeholder="Duration (In Minutes)"
-                    className="px-4 py-2 bg-transparent rounded-2xl focus:outline-none"
+                    className="px-4 py-2 bg-transparent rounded-2xl focus:outline-none font-bold"
                   >
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -169,9 +171,12 @@ function AddCardModal({ addCard, handleClose }) {
               <QuestionMarkCircleIcon className="h-7 w-7 text-gray-400 cursor-pointer" />
 
               <button
+                type="submit"
                 className="flex align-right border-2 rounded-full py-1 px-6 border-black bg-black text-white  transition transform hover:scale-105 duration-100 active:scale-95 ease-in-out font-bold disabled:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:text-white disabled:border-gray-300"
                 disabled={!dirty}
-                onSubmit={handleClose}
+                onMouseUp={() => {
+                  handleClose();
+                }}
               >
                 Create
               </button>
