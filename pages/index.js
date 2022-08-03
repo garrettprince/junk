@@ -1,5 +1,7 @@
 import Head from "next/head";
 import KanbanContainer from "../components/KanbanContainer";
+import LevelContainer from "../components/LevelContainer";
+import MenuButton from "../components/MenuButton";
 
 
 export default function Home() {
@@ -8,7 +10,11 @@ export default function Home() {
       <Head>
         <title>Junk</title>
       </Head>
-      <KanbanContainer />
+      <main className="">
+        <MenuButton />
+        <KanbanContainer />
+        {/* <LevelContainer /> */}
+      </main>
     </div>
   );
 }

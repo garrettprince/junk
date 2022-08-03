@@ -69,7 +69,7 @@ function KanbanContainer() {
 
   return (
     <>
-      <section id="columns" className="flex justify-center">
+      <section id="columns" className="flex justify-end mx-3">
         {columns.map((column) => (
           <Column
             key={column.name}

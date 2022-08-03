@@ -6,12 +6,12 @@ function Column({ name, cards }) {
   const [columnOpen, setColumnOpen] = useState(true);
 
   return (
-    <div className="flex-col h-full bg-gray-100 rounded-3xl mx-4 min-h-[7rem] mt-10">
+    <div className="flex-col h-full bg-gray-100 rounded-3xl mx-3 min-h-[6rem] mt-10">
       <header className="flex justify-between ml-7 mr-4 mt-4">
         <h1 className="text-[1.7rem] font-bold">{name}</h1>
         <div className="flex items-center space-x-4">
-          <DotsHorizontalIcon className="h-7 w-7 cursor-pointer text-gray-500" />
-          <ChevronRightIcon className="h-9 w-9 cursor-pointer text-gray-500" />
+          <DotsHorizontalIcon className="h-7 w-7 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
+          <ChevronRightIcon className="h-9 w-9 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
         </div>
       </header>
       {cards.map((card) => (
@@ -25,7 +25,7 @@ function Column({ name, cards }) {
           urgent={card.urgent}
         />
       ))}
-      <div className="w-[316px]"></div>
+      <div className="mx-auto w-[316px]"></div>
     </div>
   );
 }

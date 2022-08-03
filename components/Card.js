@@ -37,7 +37,7 @@ function Card({ title, description, category, dueDate, duration, urgent }) {
         <h2 className="text-sm font-extrabold text-green-500">
           {`DUE ` + dueDate.toUpperCase()}
         </h2>
-        <DotsHorizontalIcon className="h-6 w-6 cursor-pointer text-green-500" />
+        <DotsHorizontalIcon className="h-6 w-6 cursor-pointer text-green-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
       </footer>
     </div>
   );
