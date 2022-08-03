@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 const columns = [
   { name: "Not Started" },
   { name: "In Progress" },
+  { name: "Stalled" },
   { name: "Completed" },
 ];
 
@@ -80,8 +81,9 @@ function KanbanContainer() {
 
       <button
         onClick={openModal}
-        className="rounded-full p-4 bg-gray-100 absolute bottom-0 left-0 m-10 transition ease-in-out transform duration-100 hover:scale-105 active:scale-95"
+        className="flex items-center space-x-2 rounded-full p-4 bg-gray-100 absolute bottom-0 left-0 m-10 transition ease-in-out transform duration-100 hover:scale-105 active:scale-95"
       >
+        {/* <p className="text-transparent">New Task</p> */}
         <PlusIcon className="h-10 w-10" />
       </button>
 
