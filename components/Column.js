@@ -11,7 +11,7 @@ function Column({ name, cards }) {
         <h1 className="text-[1.7rem] font-bold">{name}</h1>
         <div className="flex items-center space-x-4">
           <DotsHorizontalIcon className="h-7 w-7 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
-          <ChevronRightIcon className="h-9 w-9 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
+          <ChevronRightIcon className="h-8 w-8 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
         </div>
       </header>
       {cards.map((card) => (

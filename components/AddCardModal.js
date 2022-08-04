@@ -15,14 +15,13 @@ function AddCardModal({ addCard, handleClose }) {
 
   return (
     <main
-      style={category}
       className="my-auto transition rounded-3xl h-[625px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent"
     >
       <header className="flex justify-between items-center mb-6">
         <div className="">
           <XIcon className="h-7 w-7 text-transparent" />
         </div>
-        <h1 className="font-bold text-3xl ">New Task</h1>
+        <h1 className="font-bold text-3xl">New Task</h1>
         <button className="">
           <XIcon className="h-7 w-7" onClick={handleClose} />
         </button>
@@ -49,14 +48,14 @@ function AddCardModal({ addCard, handleClose }) {
               type="text"
               name="title"
               placeholder="Title"
-              className="mb-4 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-2xl font-bold focus:outline-none "
+              className="mb-4 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-2xl font-bold focus:outline-none focus:bg-gray-200 rounded-xl"
             />
             <Field
               as="textarea"
               type="description"
               name="description"
               placeholder="Description"
-              className=" mb-4 mt-1 py-2 pl-3 bg-transparent w-full h-20 focus:outline-none resize-none border-b-2 border-transparent rounded-xl focus:bg-gray-200"
+              className=" mb-4 mt-1 py-2 pl-3 bg-transparent w-full h-24  focus:outline-none resize-none border-b-2 border-transparent rounded-xl focus:bg-gray-200"
             />
             <section className="">
               <div className="flex justify-between  mb-4 mt-1">
@@ -104,7 +103,7 @@ function AddCardModal({ addCard, handleClose }) {
                     name={categoryData.design.title}
                     color={{ backgroundColor: categoryData.design.color }}
                     onClick={() =>
-                      setCategory({ borderColor: categoryData.design.color })
+                      setCategory({ width: '5rem', display: 'block' })
                     }
                   />
                   <CategoryButton
