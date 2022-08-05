@@ -42,6 +42,7 @@ export const columns = [
 export const statusTypes = {
     NOT_STARTED: 'Not Started',
     IN_PROGRESS: 'In Progress',
+    STALLED: 'Stalled',
     COMPLETED: 'Completed',
 }
 

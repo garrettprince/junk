@@ -14,14 +14,12 @@ function AddCardModal({ addCard, handleClose }) {
   });
 
   return (
-    <main
-      className="my-auto transition rounded-3xl h-[625px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent"
-    >
-      <header className="flex justify-between items-center mb-6">
+    <main className="my-auto transition rounded-3xl h-[625px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
+      <header className="flex justify-between items-center mb-6 mx-1">
         <div className="">
           <XIcon className="h-7 w-7 text-transparent" />
         </div>
-        <h1 className="font-bold text-3xl">New Task</h1>
+        <h1 className="font-bold text-[1.7rem]">New Task</h1>
         <button className="">
           <XIcon className="h-7 w-7" onClick={handleClose} />
         </button>
@@ -34,7 +32,7 @@ function AddCardModal({ addCard, handleClose }) {
           dueDate: "",
           duration: "",
           urgent: false,
-          status: "Not Started", //TODO: change to using statusTypes
+          status: "",
         }}
         onSubmit={async (values) => {
           addCard(values);
@@ -48,7 +46,7 @@ function AddCardModal({ addCard, handleClose }) {
               type="text"
               name="title"
               placeholder="Title"
-              className="mb-4 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-2xl font-bold focus:outline-none focus:bg-gray-200 rounded-xl"
+              className="mb-4 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-xl font-bold focus:outline-none focus:bg-gray-200 rounded-xl"
             />
             <Field
               as="textarea"
@@ -60,17 +58,17 @@ function AddCardModal({ addCard, handleClose }) {
             <section className="">
               <div className="flex justify-between  mb-4 mt-1">
                 <div className="">
-                  <p className="text-gray-400">Status</p>
+                  <p className="text-gray-400 ml-3">Status</p>
                   <Field
                     as="select"
                     type="text"
                     name="status"
-                    placeholder="Status"
-                    className="py-2 flex-1 font-bold bg-transparent focus:outline-none"
+                    className="ml-2 py-2 flex-1 font-bold bg-transparent focus:outline-none"
                   >
-                    <option value="notstarted">Not Started</option>
-                    <option value="inprogress">In Progress</option>
-                    <option value="completed">Completed</option>
+                    <option value={statusTypes.NOT_STARTED}>Not Started</option>
+                    <option value={statusTypes.IN_PROGRESS}>In Progress</option>
+                    <option value={statusTypes.STALLED}>Stalled</option>
+                    <option value={statusTypes.COMPLETED}>Completed</option>
                   </Field>
                 </div>
                 <div>
@@ -103,7 +101,7 @@ function AddCardModal({ addCard, handleClose }) {
                     name={categoryData.design.title}
                     color={{ backgroundColor: categoryData.design.color }}
                     onClick={() =>
-                      setCategory({ width: '5rem', display: 'block' })
+                      setCategory({ width: "5rem", display: "block" })
                     }
                   />
                   <CategoryButton

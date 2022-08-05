@@ -3,6 +3,7 @@ import { PlusIcon } from "@heroicons/react/solid";
 import AddCardModal from "./AddCardModal";
 import Column from "./Column";
 import { motion } from "framer-motion";
+import { statusTypes } from "../utils/data";
 
 const columns = [
   { name: "Not Started" },
@@ -10,12 +11,6 @@ const columns = [
   { name: "Stalled" },
   { name: "Completed" },
 ];
-
-const statusTypes = {
-  NOT_STARTED: "Not Started",
-  IN_PROGRESS: "In Progress",
-  COMPLETED: "Completed",
-};
 
 const mockCards = [
   {
@@ -43,7 +38,7 @@ const mockCards = [
     dueDate: "9/1",
     duration: "45",
     urgent: true,
-    status: statusTypes.COMPLETED,
+    status: statusTypes.STALLED,
   },
   {
     title: "Test4",
@@ -69,7 +64,7 @@ function KanbanContainer() {
 
   return (
     <>
-      <section id="columns" className="flex justify-end mx-3">
+      <section id="columns" className="flex justify-end mx-3 overflow-x-scroll">
         {columns.map((column) => (
           <Column
             key={column.name}
