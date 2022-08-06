@@ -5,12 +5,11 @@ import { categoryData } from "../utils/data";
 
 function Column({ name, cards }) {
   const [columnOpen, setColumnOpen] = useState(true);
-  const [category, setCategory] = useState("");
 
   return (
     <div className="flex-col h-full bg-gray-100 rounded-3xl mx-3 min-h-[6rem] mt-10">
       <header className="flex justify-between ml-7 mr-4 mt-4">
-        <h1 className="text-[1.7rem] font-bold">{name}</h1>
+        <h1 className="text-[1.7rem] font-semibold">{name}</h1>
         <div className="flex items-center space-x-4">
           <DotsHorizontalIcon className="h-7 w-7 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
           <ChevronRightIcon className="h-8 w-8 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />

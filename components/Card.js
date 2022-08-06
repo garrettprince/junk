@@ -17,7 +17,7 @@ function Card({
       style={style}
     >
       <header className="flex justify-between items-center mx-4 mt-3">
-        <h1 className="font-bold text-xl">{title}</h1>
+        <h1 className="font-semibold text-xl">{title}</h1>
         {urgent && (
           <button className="h-5 w-5 rounded-full bg-red-500 text-transparent text-xs font-extrabold px-[.35rem] py-0 hover:text-white hover:rounded-lg hover:w-20 transition-all">
             URGENT

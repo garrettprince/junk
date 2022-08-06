@@ -30,7 +30,7 @@ function AddCardModal({ addCard, handleClose }) {
         <div className="">
           <XIcon className="h-7 w-7 text-transparent" />
         </div>
-        <h1 className="font-bold text-[1.7rem]">New Task</h1>
+        <h1 className="font-semibold text-[1.7rem]">New Task</h1>
         <button className="">
           <XIcon className="h-7 w-7" onClick={handleClose} />
         </button>
@@ -58,7 +58,7 @@ function AddCardModal({ addCard, handleClose }) {
               type="text"
               name="title"
               placeholder="Title"
-              className="mb-4 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-xl font-bold focus:outline-none focus:bg-gray-200 rounded-xl"
+              className="mb-2 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-xl font-semibold focus:outline-none focus:bg-gray-200 rounded-xl"
             />
             <Field
               as="textarea"
@@ -75,7 +75,7 @@ function AddCardModal({ addCard, handleClose }) {
                     as="select"
                     type="text"
                     name="status"
-                    className="p-2 mt-1 mr-2 font-bold bg-transparent focus:bg-gray-200 rounded-xl focus:outline-none"
+                    className="p-2 mt-1 mr-2 font-semibold bg-transparent focus:bg-gray-200 rounded-xl focus:outline-none"
                   >
                     <option value={statusTypes.NOT_STARTED}>Not Started</option>
                     <option value={statusTypes.IN_PROGRESS}>In Progress</option>
@@ -91,7 +91,7 @@ function AddCardModal({ addCard, handleClose }) {
                     type="date"
                     name="dueDate"
                     placeholder="Due Date"
-                    className="flex-1 p-2 bg-transparent font-bold focus:bg-gray-200 rounded-xl focus:outline-none"
+                    className="flex-1 p-2 bg-transparent font-semibold focus:bg-gray-200 rounded-xl focus:outline-none"
                   />
                 </div>
               </div>
@@ -273,7 +273,7 @@ function AddCardModal({ addCard, handleClose }) {
                     as="select"
                     type="number"
                     name="duration"
-                    className="p-2 mt-1  bg-transparent rounded-xl focus:outline-none font-bold focus:bg-gray-200"
+                    className="p-2 mt-1  bg-transparent rounded-xl focus:outline-none font-semibold focus:bg-gray-200"
                   >
                     <option value="15">15</option>
                     <option value="30">30</option>

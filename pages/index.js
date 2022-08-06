@@ -3,7 +3,6 @@ import KanbanContainer from "../components/KanbanContainer";
 import LevelContainer from "../components/LevelContainer";
 import MenuButton from "../components/MenuButton";
 
-
 export default function Home() {
   return (
     <div>
