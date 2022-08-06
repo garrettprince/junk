@@ -9,17 +9,18 @@ import { categoryData, statusTypes, columns } from "../utils/data";
 
 function AddCardModal({ addCard, handleClose }) {
   const [enabled, setEnabled] = useState(false);
-  const [category, setCategory] = useState("");
-  const [categoryStyle, setCategoryStyle] = useState("");
+  const [categoryName, setCategoryName] = useState("");
+  const [categorySelected, setCategorySelected] = useState(false);
 
-  const categorySelected = () => {
-    if (category === categoryData.dev.title) {
-      setCategory('');
+  const handleCategoryChange = () => {
+    if (!categorySelected) {
+      setCategorySelected(!categorySelected);
+    } else {
+      setCategorySelected(categorySelected);
     }
   };
 
-  console.log(category);
-  
+  console.log(categoryName)
 
   return (
     <main className="my-auto transition rounded-3xl h-[650px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
@@ -104,61 +105,163 @@ function AddCardModal({ addCard, handleClose }) {
                   <CategoryButton
                     key={categoryData.dev.title}
                     name={categoryData.dev.title}
-                    color={{ backgroundColor: categoryData.dev.color }}
                     onClick={() => {
-                      setCategory(categoryData.dev.title);
-                      console.log(category);
+                      setCategoryName(categoryData.dev.title);
+                      handleCategoryChange();
                     }}
-                    className={`${
-                      category === categoryData.dev.title ? "w-20" : "w-10"
-                    }`}
+                    style={{
+                      backgroundColor: categoryData.dev.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.dev.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.dev.title
+                          ? categoryData.dev.textColor
+                          : "",
+                    }}
                   />
                   <CategoryButton
                     name={categoryData.design.title}
-                    color={{ backgroundColor: categoryData.design.color }}
-                    onClick={() => setCategory(categoryData.design.title)}
+                    onClick={() => {
+                      setCategoryName(categoryData.design.title);
+                      handleCategoryChange();
+                    }}
+                    style={{
+                      backgroundColor: categoryData.design.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.design.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.design.title
+                          ? categoryData.design.textColor
+                          : "",
+                    }}
                   />
                   <CategoryButton
                     name={categoryData.lime.title}
-                    color={{ backgroundColor: categoryData.lime.color }}
-                    onClick={() =>
-                      setCategory({ borderColor: categoryData.lime.color })
-                    }
+                    onClick={() => {
+                      setCategoryName(categoryData.lime.title);
+                      handleCategoryChange();
+                    }}
+                    style={{
+                      backgroundColor: categoryData.lime.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.lime.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.lime.title
+                          ? categoryData.lime.textColor
+                          : "",
+                    }}
                   />
                   <CategoryButton
                     name={categoryData.emerald.title}
-                    color={{ backgroundColor: categoryData.emerald.color }}
-                    onClick={() =>
-                      setCategory({ borderColor: categoryData.emerald.color })
-                    }
+                    onClick={() => {
+                      setCategoryName(categoryData.emerald.title);
+                      handleCategoryChange();
+                    }}
+                    style={{
+                      backgroundColor: categoryData.emerald.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.emerald.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.emerald.title
+                          ? categoryData.emerald.textColor
+                          : "",
+                    }}
                   />
                   <CategoryButton
                     name={categoryData.cyan.title}
-                    color={{ backgroundColor: categoryData.cyan.color }}
-                    onClick={() =>
-                      setCategory({ borderColor: categoryData.cyan.color })
-                    }
+                    onClick={() => {
+                      setCategoryName(categoryData.cyan.title);
+                      handleCategoryChange();
+                    }}
+                    style={{
+                      backgroundColor: categoryData.cyan.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.cyan.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.cyan.title
+                          ? categoryData.cyan.textColor
+                          : "",
+                    }}
                   />
                   <CategoryButton
                     name={categoryData.blue.title}
-                    color={{ backgroundColor: categoryData.blue.color }}
-                    onClick={() =>
-                      setCategory({ borderColor: categoryData.blue.color })
-                    }
+                    onClick={() => {
+                      setCategoryName(categoryData.blue.title);
+                      handleCategoryChange();
+                    }}
+                    style={{
+                      backgroundColor: categoryData.blue.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.blue.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.blue.title
+                          ? categoryData.blue.textColor
+                          : "",
+                    }}
                   />
                   <CategoryButton
                     name={categoryData.purple.title}
-                    color={{ backgroundColor: categoryData.purple.color }}
-                    onClick={() =>
-                      setCategory({ borderColor: categoryData.purple.color })
-                    }
+                    onClick={() => {
+                      setCategoryName(categoryData.purple.title);
+                      handleCategoryChange();
+                    }}
+                    style={{
+                      backgroundColor: categoryData.purple.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.purple.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.purple.title
+                          ? categoryData.purple.textColor
+                          : "",
+                    }}
                   />
                   <CategoryButton
                     name={categoryData.pink.title}
-                    color={{ backgroundColor: categoryData.pink.color }}
-                    onClick={() =>
-                      setCategory({ borderColor: categoryData.pink.color })
-                    }
+                    onClick={() => {
+                      setCategoryName(categoryData.pink.title);
+                      handleCategoryChange();
+                    }}
+                    style={{
+                      backgroundColor: categoryData.pink.color,
+                      width:
+                        categorySelected &&
+                        categoryName === categoryData.pink.title
+                          ? "5rem"
+                          : "",
+                      color:
+                        categorySelected &&
+                        categoryName === categoryData.pink.title
+                          ? categoryData.pink.textColor
+                          : "",
+                    }}
                   />
                 </section>
               </div>
