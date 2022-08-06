@@ -5,7 +5,7 @@ import { Switch } from "@headlessui/react";
 import { XIcon, QuestionMarkCircleIcon } from "@heroicons/react/solid";
 import CategoryButton from "./CategoryButton";
 import { motion } from "framer-motion";
-import { categoryData, statusTypes, columns } from "../utils/data";
+import { categoryData, statusTypes } from "../utils/data";
 
 function AddCardModal({ addCard, handleClose }) {
   const [enabled, setEnabled] = useState(false);
@@ -20,7 +20,7 @@ function AddCardModal({ addCard, handleClose }) {
     }
   };
 
-  console.log(categoryName)
+  console.log(categoryName);
 
   return (
     <main className="my-auto transition rounded-3xl h-[650px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
@@ -94,12 +94,11 @@ function AddCardModal({ addCard, handleClose }) {
                 </div>
               </div>
               <div>
-                {/* <Field
+                <Field
                   type="text"
                   name="category"
-                  placeholder="Category"
-                  className="bg-transparent rounded-2xl focus:outline-none"
-                /> */}
+                  className="hidden bg-transparent rounded-2xl focus:outline-none"
+                ></Field>
                 <p className="text-gray-400 ml-3">Category</p>
                 <section className="flex justify-between py-3 px-1 mb-4 mt-1 mx-3">
                   <CategoryButton

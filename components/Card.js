@@ -1,11 +1,19 @@
 import React from "react";
 import { DotsHorizontalIcon } from "@heroicons/react/solid";
-import { categoryData } from '../utils/data'
+import { categoryData } from "../utils/data";
 
-function Card({ title, description, category, dueDate, duration, urgent, style }) {
+function Card({
+  title,
+  description,
+  category,
+  dueDate,
+  duration,
+  urgent,
+  style,
+}) {
   return (
     <div
-      className="bg-green-500/10 h-max w-[19rem] border-green-500 rounded-2xl border-[6px] cursor-grab m-4 transition-all hover:scale-[1.025] active:scale-100"
+      className="bg-green-500/10 h-max w-[19rem] border-green-500 rounded-2xl border-[6px] cursor-grab m-4 transition-all hover:scale-[1.015] active:scale-100"
       style={style}
     >
       <header className="flex justify-between items-center mx-4 mt-3">
@@ -37,7 +45,10 @@ function Card({ title, description, category, dueDate, duration, urgent, style }
         <h2 className="text-sm font-extrabold text-green-500">
           {`DUE ` + dueDate.toUpperCase()}
         </h2>
-        <DotsHorizontalIcon className="h-6 w-6 cursor-pointer hover:scale-110 transition-all ease-in-out active:scale-95" style={style} />
+        <DotsHorizontalIcon
+          className="h-6 w-6 cursor-pointer hover:scale-110 transition-all ease-in-out active:scale-95"
+          style={style}
+        />
       </footer>
     </div>
   );
