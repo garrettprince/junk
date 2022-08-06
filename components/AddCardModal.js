@@ -20,6 +20,8 @@ function AddCardModal({ addCard, handleClose }) {
     }
   };
 
+  const checkedStatus = enabled;
+
   console.log(categoryName);
 
   return (
@@ -39,9 +41,9 @@ function AddCardModal({ addCard, handleClose }) {
           description: "",
           category: "",
           dueDate: "",
-          duration: "",
-          urgent: false,
-          status: "",
+          duration: "15",
+          urgent: checkedStatus,
+          status: statusTypes.NOT_STARTED,
         }}
         onSubmit={async (values) => {
           addCard(values);
@@ -283,12 +285,13 @@ function AddCardModal({ addCard, handleClose }) {
                 </div>
                 <div className="">
                   <p className="text-gray-400 mb-2 mr-2">Urgent</p>
-                  {/* <Field
+                  <Field
+                    value={checkedStatus}
                     type="checkbox"
                     name="urgent"
                     placeholder="Urgent"
-                    className="px-4 py-2 bg-transparent rounded-2xl focus:outline-none"
-                  /> */}
+                    className="hidden px-4 py-2 bg-transparent rounded-2xl focus:outline-none"
+                  />
                   <div className="flex">
                     {/* <p className="text-gray-400">No</p> */}
                     <Switch

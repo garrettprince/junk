@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import { ChevronRightIcon, DotsHorizontalIcon } from "@heroicons/react/solid";
+import { categoryData } from "../utils/data";
 
 function Column({ name, cards }) {
   const [columnOpen, setColumnOpen] = useState(true);
+  const [category, setCategory] = useState("");
 
   return (
     <div className="flex-col h-full bg-gray-100 rounded-3xl mx-3 min-h-[6rem] mt-10">
@@ -23,7 +25,6 @@ function Column({ name, cards }) {
           dueDate={card.dueDate}
           duration={card.duration}
           urgent={card.urgent}
-          style={card.style}
         />
       ))}
       <div className="mx-auto w-[316px]"></div>
