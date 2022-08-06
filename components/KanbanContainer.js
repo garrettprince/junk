@@ -3,53 +3,7 @@ import { PlusIcon } from "@heroicons/react/solid";
 import AddCardModal from "./AddCardModal";
 import Column from "./Column";
 import { motion } from "framer-motion";
-import { statusTypes } from "../utils/data";
-
-const columns = [
-  { name: "Not Started" },
-  { name: "In Progress" },
-  { name: "Stalled" },
-  { name: "Completed" },
-];
-
-const mockCards = [
-  {
-    title: "Test",
-    description: "Test description",
-    category: "Dev",
-    dueDate: "8/11",
-    duration: "30",
-    urgent: false,
-    status: statusTypes.IN_PROGRESS,
-  },
-  {
-    title: "Test2",
-    description: "Another test",
-    category: "Other",
-    dueDate: "9/1",
-    duration: "45",
-    urgent: true,
-    status: statusTypes.COMPLETED,
-  },
-  {
-    title: "Test3",
-    description: "Another test",
-    category: "Other",
-    dueDate: "9/1",
-    duration: "45",
-    urgent: true,
-    status: statusTypes.STALLED,
-  },
-  {
-    title: "Test4",
-    description: "Another test",
-    category: "Other",
-    dueDate: "9/1",
-    duration: "45",
-    urgent: true,
-    status: statusTypes.COMPLETED,
-  },
-];
+import { statusTypes, columns, mockCards } from "../utils/data";
 
 function KanbanContainer() {
   const [isOpen, setIsOpen] = useState(false);

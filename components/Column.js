@@ -23,6 +23,7 @@ function Column({ name, cards }) {
           dueDate={card.dueDate}
           duration={card.duration}
           urgent={card.urgent}
+          style={card.style}
         />
       ))}
       <div className="mx-auto w-[316px]"></div>

@@ -5,16 +5,24 @@ import { Switch } from "@headlessui/react";
 import { XIcon, QuestionMarkCircleIcon } from "@heroicons/react/solid";
 import CategoryButton from "./CategoryButton";
 import { motion } from "framer-motion";
-import { categoryData, statusTypes } from "../utils/data";
+import { categoryData, statusTypes, columns } from "../utils/data";
 
 function AddCardModal({ addCard, handleClose }) {
   const [enabled, setEnabled] = useState(false);
-  const [category, setCategory] = useState({
-    borderColor: "transparent",
-  });
+  const [category, setCategory] = useState("");
+  const [categoryStyle, setCategoryStyle] = useState("");
+
+  const categorySelected = () => {
+    if (category === categoryData.dev.title) {
+      setCategory('');
+    }
+  };
+
+  console.log(category);
+  
 
   return (
-    <main className="my-auto transition rounded-3xl h-[625px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
+    <main className="my-auto transition rounded-3xl h-[650px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
       <header className="flex justify-between items-center mb-6 mx-1">
         <div className="">
           <XIcon className="h-7 w-7 text-transparent" />
@@ -38,10 +46,11 @@ function AddCardModal({ addCard, handleClose }) {
           addCard(values);
           // post to supabase
           // call refresh function
+          handleClose();
         }}
       >
         {({ values, errors, touched, dirty }) => (
-          <Form className="flex-col mx-4">
+          <Form className="flex-col mx-2">
             <Field
               type="text"
               name="title"
@@ -63,7 +72,7 @@ function AddCardModal({ addCard, handleClose }) {
                     as="select"
                     type="text"
                     name="status"
-                    className="ml-2 py-2 flex-1 font-bold bg-transparent focus:outline-none"
+                    className="p-2 mt-1 mr-2 font-bold bg-transparent focus:bg-gray-200 rounded-xl focus:outline-none"
                   >
                     <option value={statusTypes.NOT_STARTED}>Not Started</option>
                     <option value={statusTypes.IN_PROGRESS}>In Progress</option>
@@ -71,38 +80,43 @@ function AddCardModal({ addCard, handleClose }) {
                     <option value={statusTypes.COMPLETED}>Completed</option>
                   </Field>
                 </div>
-                <div>
-                  <p className="text-gray-400">Due</p>
+                <div className="">
+                  <p className="text-gray-400 flex justify-end px-2 pb-1">
+                    Due
+                  </p>
                   <Field
                     type="date"
                     name="dueDate"
                     placeholder="Due Date"
-                    className="flex-1 py-2 bg-transparent focus:outline-none font-bold"
+                    className="flex-1 p-2 bg-transparent font-bold focus:bg-gray-200 rounded-xl focus:outline-none"
                   />
                 </div>
               </div>
               <div>
-                <Field
+                {/* <Field
                   type="text"
                   name="category"
                   placeholder="Category"
                   className="bg-transparent rounded-2xl focus:outline-none"
-                />
-                <section className="flex justify-between py-3 px-1 mb-4 mt-1">
+                /> */}
+                <p className="text-gray-400 ml-3">Category</p>
+                <section className="flex justify-between py-3 px-1 mb-4 mt-1 mx-3">
                   <CategoryButton
                     key={categoryData.dev.title}
                     name={categoryData.dev.title}
                     color={{ backgroundColor: categoryData.dev.color }}
-                    onClick={() =>
-                      setCategory({ borderColor: categoryData.dev.color })
-                    }
+                    onClick={() => {
+                      setCategory(categoryData.dev.title);
+                      console.log(category);
+                    }}
+                    className={`${
+                      category === categoryData.dev.title ? "w-20" : "w-10"
+                    }`}
                   />
                   <CategoryButton
                     name={categoryData.design.title}
                     color={{ backgroundColor: categoryData.design.color }}
-                    onClick={() =>
-                      setCategory({ width: "5rem", display: "block" })
-                    }
+                    onClick={() => setCategory(categoryData.design.title)}
                   />
                   <CategoryButton
                     name={categoryData.lime.title}
@@ -150,13 +164,12 @@ function AddCardModal({ addCard, handleClose }) {
               </div>
               <section className="flex justify-between">
                 <div className="flex-col">
-                  <p className="text-gray-400">Duration (In Minutes)</p>
+                  <p className="text-gray-400 mx-3">Duration (In Minutes)</p>
                   <Field
                     as="select"
                     type="number"
                     name="duration"
-                    placeholder="Duration (In Minutes)"
-                    className="px-4 py-2 bg-transparent rounded-2xl focus:outline-none font-bold"
+                    className="p-2 mt-1  bg-transparent rounded-xl focus:outline-none font-bold focus:bg-gray-200"
                   >
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -167,14 +180,14 @@ function AddCardModal({ addCard, handleClose }) {
                   </Field>
                 </div>
                 <div className="">
-                  <p className="text-gray-400 mb-2">Urgent</p>
+                  <p className="text-gray-400 mb-2 mr-2">Urgent</p>
                   {/* <Field
                     type="checkbox"
                     name="urgent"
                     placeholder="Urgent"
                     className="px-4 py-2 bg-transparent rounded-2xl focus:outline-none"
                   /> */}
-                  <div className="flex space-x-2">
+                  <div className="flex">
                     {/* <p className="text-gray-400">No</p> */}
                     <Switch
                       checked={enabled}
@@ -201,9 +214,6 @@ function AddCardModal({ addCard, handleClose }) {
                 type="submit"
                 className="flex align-right border-2 rounded-full py-1 px-6 border-black bg-black text-white  transition transform hover:scale-105 duration-100 active:scale-95 ease-in-out font-bold disabled:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:text-white disabled:border-gray-300"
                 disabled={!dirty}
-                onMouseUp={() => {
-                  handleClose();
-                }}
               >
                 Create
               </button>
