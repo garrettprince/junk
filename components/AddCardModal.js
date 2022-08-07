@@ -5,10 +5,10 @@ import { Switch } from "@headlessui/react";
 import { XIcon, QuestionMarkCircleIcon } from "@heroicons/react/solid";
 import CategoryButton from "./CategoryButton";
 import { motion } from "framer-motion";
-import { categoryData, statusTypes } from "../utils/data";
+import { statusTypes } from "../utils/data";
 
-function AddCardModal({ addCard, handleClose }) {
-  const [enabled, setEnabled] = useState(false);
+function AddCardModal({ categoryData, addCard, handleClose }) {
+  // const [enabled, setEnabled] = useState(false);
   const [categoryName, setCategoryName] = useState("");
   const [categorySelected, setCategorySelected] = useState(false);
 
@@ -19,10 +19,6 @@ function AddCardModal({ addCard, handleClose }) {
       setCategorySelected(categorySelected);
     }
   };
-
-  const checkedStatus = enabled;
-
-  console.log(categoryName);
 
   return (
     <main className="my-auto transition rounded-3xl h-[650px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
@@ -42,7 +38,7 @@ function AddCardModal({ addCard, handleClose }) {
           category: "",
           dueDate: "",
           duration: "15",
-          urgent: checkedStatus,
+          urgent: false,
           status: statusTypes.NOT_STARTED,
         }}
         onSubmit={async (values) => {
@@ -52,7 +48,7 @@ function AddCardModal({ addCard, handleClose }) {
           handleClose();
         }}
       >
-        {({ values, errors, touched, dirty }) => (
+        {({ values, errors, touched, dirty, setFieldValue }) => (
           <Form className="flex-col mx-2">
             <Field
               type="text"
@@ -103,167 +99,23 @@ function AddCardModal({ addCard, handleClose }) {
                 ></Field>
                 <p className="text-gray-400 ml-3">Category</p>
                 <section className="flex justify-between py-3 px-1 mb-4 mt-1 mx-3">
-                  <CategoryButton
-                    key={categoryData.dev.title}
-                    name={categoryData.dev.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.dev.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.dev.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.dev.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.dev.title
-                          ? categoryData.dev.textColor
-                          : "",
-                    }}
-                  />
-                  <CategoryButton
-                    name={categoryData.design.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.design.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.design.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.design.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.design.title
-                          ? categoryData.design.textColor
-                          : "",
-                    }}
-                  />
-                  <CategoryButton
-                    name={categoryData.lime.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.lime.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.lime.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.lime.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.lime.title
-                          ? categoryData.lime.textColor
-                          : "",
-                    }}
-                  />
-                  <CategoryButton
-                    name={categoryData.emerald.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.emerald.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.emerald.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.emerald.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.emerald.title
-                          ? categoryData.emerald.textColor
-                          : "",
-                    }}
-                  />
-                  <CategoryButton
-                    name={categoryData.cyan.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.cyan.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.cyan.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.cyan.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.cyan.title
-                          ? categoryData.cyan.textColor
-                          : "",
-                    }}
-                  />
-                  <CategoryButton
-                    name={categoryData.blue.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.blue.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.blue.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.blue.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.blue.title
-                          ? categoryData.blue.textColor
-                          : "",
-                    }}
-                  />
-                  <CategoryButton
-                    name={categoryData.purple.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.purple.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.purple.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.purple.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.purple.title
-                          ? categoryData.purple.textColor
-                          : "",
-                    }}
-                  />
-                  <CategoryButton
-                    name={categoryData.pink.title}
-                    onClick={() => {
-                      setCategoryName(categoryData.pink.title);
-                      handleCategoryChange();
-                    }}
-                    style={{
-                      backgroundColor: categoryData.pink.color,
-                      width:
-                        categorySelected &&
-                        categoryName === categoryData.pink.title
-                          ? "5rem"
-                          : "",
-                      color:
-                        categorySelected &&
-                        categoryName === categoryData.pink.title
-                          ? categoryData.pink.textColor
-                          : "",
-                    }}
-                  />
+                  {/* 
+                      Update this section so 
+                        1) it doesn't repeat code (Think map and passing in props), 
+                        2) it updates the state that formik is handling (setFieldValue), 
+                        3) the style code is moved into the component (use the categoryProp on the style inside the component)
+                  */}
+
+                  {categoryData.map((category) => (
+                    <CategoryButton
+                      key={category.title}
+                      name={category.title}
+                      color={category.color}
+                      selected={values.category === category.title}
+                      handleClick={() => setFieldValue('category', category.title)}
+                    />
+                  ))}
+
                 </section>
               </div>
               <section className="flex justify-between">
@@ -286,7 +138,7 @@ function AddCardModal({ addCard, handleClose }) {
                 <div className="">
                   <p className="text-gray-400 mb-2 mr-2">Urgent</p>
                   <Field
-                    value={checkedStatus}
+                    component={Switch}
                     type="checkbox"
                     name="urgent"
                     placeholder="Urgent"
@@ -295,15 +147,15 @@ function AddCardModal({ addCard, handleClose }) {
                   <div className="flex">
                     {/* <p className="text-gray-400">No</p> */}
                     <Switch
-                      checked={enabled}
-                      onChange={setEnabled}
+                      // checked={enabled}
+                      onChange={() => setFieldValue('urgent', !values.urgent)}
                       className={`${
-                        enabled ? "bg-red-600" : "bg-gray-200"
+                        values.urgent ? "bg-red-600" : "bg-gray-200"
                       } relative inline-flex h-6 w-11 items-center rounded-full transition duration-200`}
                     >
                       <span
                         className={`${
-                          enabled ? "translate-x-6" : "translate-x-1"
+                          values.urgent ? "translate-x-6" : "translate-x-1"
                         } inline-block h-4 w-4 transform rounded-full bg-white transition duration-200`}
                       />
                     </Switch>

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { categoryData, statusTypes } from "../utils/data";
+import React from "react";
 
-function CategoryButton({ name, style, onClick }) {
+function CategoryButton({ name, color, selected, handleClick }) {
   return (
     <button
       type="button"
-      className="rounded-full h-6 w-6 cursor-pointer text-xs font-bold text-transparent transition-all ease-in-out hover:duration-150 hover:w-20 hover:text-white hover:scale-105 active:scale-95"
-      style={style}
-      onClick={onClick}
+      className={`${selected ? 'w-20 text-white' : 'w-6'} rounded-full h-6 cursor-pointer text-xs font-bold text-transparent transition-all ease-in-out hover:duration-150 hover:w-20 hover:text-white hover:scale-105 active:scale-95`}
+      style={{ backgroundColor: color }}
+      onClick={handleClick}
     >
       {name}
     </button>

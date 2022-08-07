@@ -3,7 +3,7 @@ import { PlusIcon } from "@heroicons/react/solid";
 import AddCardModal from "./AddCardModal";
 import Column from "./Column";
 import { motion } from "framer-motion";
-import { statusTypes, columns, mockCards } from "../utils/data";
+import { statusTypes, columns, mockCards, categoryData } from "../utils/data";
 
 function KanbanContainer() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +24,7 @@ function KanbanContainer() {
             key={column.name}
             name={column.name}
             cards={cards.filter((card) => card.status === column.name)}
+            categoryData={categoryData}
           />
         ))}
       </section>
@@ -44,7 +45,7 @@ function KanbanContainer() {
           exit={{ opacity: 0 }}
           className="fixed bg-black/50 inset-0 h-full w-full flex justify-center align-middle"
         >
-          <AddCardModal addCard={addCard} handleClose={closeModal} />
+          <AddCardModal addCard={addCard} handleClose={closeModal} categoryData={categoryData} />
         </motion.div>
       )}
     </>
