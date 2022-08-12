@@ -15,29 +15,21 @@ function Column({ name, cards, categoryData }) {
           <ChevronRightIcon className="h-8 w-8 cursor-pointer text-gray-500 hover:scale-110 transition-all ease-in-out active:scale-95" />
         </div>
       </header>
-      {cards.map((card) => {
-        console.log(
-          categoryData.find((category) => category.title === card.category)
-            ?.color
-        );
-        return (
-          <Card
-            key={card.title}
-            title={card.title}
-            description={card.description}
-            category={card.category}
-            dueDate={card.dueDate}
-            duration={card.duration}
-            urgent={card.urgent}
-            color={categoryData.find(
-              (category) => category.title === card.category
-            )?.color}
-            // card.category
-            // categoryData Category <-> Color
-            // categoryColors has the css color values we want
-          />
-        );
-      })}
+      {cards.map((card) => (
+        <Card
+          key={card.title}
+          title={card.title}
+          description={card.description}
+          category={card.category}
+          dueDate={card.dueDate}
+          duration={card.duration}
+          urgent={card.urgent}
+          color={
+            categoryData.find((category) => category.title === card.category)
+              ?.color
+          }
+        />
+      ))}
       <div className="mx-auto w-[316px]"></div>
     </div>
   );

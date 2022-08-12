@@ -36,8 +36,8 @@ export const categoryData = [
 export const categoryColors = [
   {
     title: "orange",
-    color: "rgb(249, 115, 22)",
-    backgroundColor: "rgb(249, 115, 22, 0.1)",
+    color: "#f97516",
+    backgroundColor: "#f975161A",
   },
   {
     title: "yellow",
@@ -66,8 +66,8 @@ export const categoryColors = [
   },
   {
     title: "purple",
-    color: "rgb(168, 85, 247)",
-    backgroundColor: "rgb(168, 85, 247, 0.1)",
+    color: "#a855f7",
+    backgroundColor: "#a855f71A",
   },
   {
     title: "pink",

@@ -99,13 +99,6 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
                 ></Field>
                 <p className="text-gray-400 ml-3">Category</p>
                 <section className="flex justify-between py-3 px-1 mb-4 mt-1 mx-3">
-                  {/* 
-                      Update this section so 
-                        1) it doesn't repeat code (Think map and passing in props), 
-                        2) it updates the state that formik is handling (setFieldValue), 
-                        3) the style code is moved into the component (use the categoryProp on the style inside the component)
-                  */}
-
                   {categoryData.map((category) => (
                     <CategoryButton
                       key={category.title}
