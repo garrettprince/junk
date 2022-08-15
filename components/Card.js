@@ -25,7 +25,7 @@ function Card({
       style={{ backgroundColor, borderColor }}
     >
       <header className="flex justify-between items-center mx-4 mt-3">
-        <h1 className="font-semibold text-xl">{title}</h1>
+        <h1 className="font-semibold text-xl dark:text-white">{title}</h1>
         {urgent && (
           <button className="h-5 w-5 rounded-full bg-red-500 text-transparent text-xs font-extrabold px-[.35rem] py-0 hover:text-white hover:rounded-lg hover:w-20 transition-all">
             URGENT
@@ -37,7 +37,9 @@ function Card({
         className="flex items-center my-3 mx-4 justify-between"
       >
         <div id="description-text">
-          <p className="leading-[1.35rem] font-regular">{description}</p>
+          <p className="leading-[1.35rem] font-regular dark:text-white">
+            {description}
+          </p>
         </div>
         <div className="flex-col ml-3 leading-4">
           <h2

@@ -9,7 +9,7 @@ export default function Home() {
       <Head>
         <title>Junk</title>
       </Head>
-      <main className="">
+      <main className="dark:bg-zinc-900 h-screen">
         <MenuButton />
         <KanbanContainer />
         {/* <LevelContainer /> */}

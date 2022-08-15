@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import { statusTypes } from "../utils/data";
 
 function AddCardModal({ categoryData, addCard, handleClose }) {
-  // const [enabled, setEnabled] = useState(false);
   const [categoryName, setCategoryName] = useState("");
   const [categorySelected, setCategorySelected] = useState(false);
 
@@ -21,14 +20,14 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
   };
 
   return (
-    <main className="my-auto transition rounded-3xl h-[650px] bg-gray-100 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
+    <main className="my-auto transition rounded-3xl h-[650px] bg-gray-100 dark:bg-zinc-800 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
       <header className="flex justify-between items-center mb-6 mx-1">
         <div className="">
           <XIcon className="h-7 w-7 text-transparent" />
         </div>
-        <h1 className="font-semibold text-[1.7rem]">New Task</h1>
+        <h1 className="font-semibold text-[1.7rem] dark:text-white">New Task</h1>
         <button className="">
-          <XIcon className="h-7 w-7" onClick={handleClose} />
+          <XIcon className="h-7 w-7 dark:text-white" onClick={handleClose} />
         </button>
       </header>
       <Formik
