@@ -17,7 +17,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
     } else {
       setCategorySelected(categorySelected);
     }
-  };
+}
 
   return (
     <main className="my-auto transition rounded-3xl h-[650px] bg-gray-100 dark:bg-zinc-800 w-[600px] max-w-full max-h-[700px] p-6 duration-100 border-8 border-transparent">
