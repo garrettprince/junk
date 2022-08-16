@@ -25,7 +25,9 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
         <div className="">
           <XIcon className="h-7 w-7 text-transparent" />
         </div>
-        <h1 className="font-semibold text-[1.7rem] dark:text-white">New Task</h1>
+        <h1 className="font-semibold text-[1.7rem] dark:text-white">
+          New Task
+        </h1>
         <button className="">
           <XIcon className="h-7 w-7 dark:text-white" onClick={handleClose} />
         </button>
@@ -53,14 +55,14 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
               type="text"
               name="title"
               placeholder="Title"
-              className="mb-2 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-xl font-semibold focus:outline-none focus:bg-gray-200 rounded-xl"
+              className="mb-2 py-2 pl-3 border-b-2 border-transparent bg-transparent w-full text-xl font-semibold focus:outline-none focus:bg-gray-200 rounded-xl dark:text-white dark:focus:bg-zinc-700 "
             />
             <Field
               as="textarea"
               type="description"
               name="description"
               placeholder="Description"
-              className=" mb-4 mt-1 py-2 pl-3 bg-transparent w-full h-24  focus:outline-none resize-none border-b-2 border-transparent rounded-xl focus:bg-gray-200"
+              className=" mb-4 mt-1 py-2 pl-3 bg-transparent w-full h-24  focus:outline-none resize-none border-b-2 border-transparent rounded-xl focus:bg-gray-200 dark:text-white dark:focus:bg-zinc-700"
             />
             <section className="">
               <div className="flex justify-between  mb-4 mt-1">
@@ -70,7 +72,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
                     as="select"
                     type="text"
                     name="status"
-                    className="p-2 mt-1 mr-2 font-semibold bg-transparent focus:bg-gray-200 rounded-xl focus:outline-none"
+                    className="p-2 mt-1 mr-2 font-semibold bg-transparent focus:bg-gray-200 rounded-xl focus:outline-none dark:text-white dark:focus:bg-zinc-700"
                   >
                     <option value={statusTypes.NOT_STARTED}>Not Started</option>
                     <option value={statusTypes.IN_PROGRESS}>In Progress</option>
@@ -86,7 +88,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
                     type="date"
                     name="dueDate"
                     placeholder="Due Date"
-                    className="flex-1 p-2 bg-transparent font-semibold focus:bg-gray-200 rounded-xl focus:outline-none"
+                    className="flex-1 p-2 bg-transparent font-semibold focus:bg-gray-200 rounded-xl focus:outline-none dark:text-white dark:focus:bg-zinc-700"
                   />
                 </div>
               </div>
@@ -104,10 +106,11 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
                       name={category.title}
                       color={category.color}
                       selected={values.category === category.title}
-                      handleClick={() => setFieldValue('category', category.title)}
+                      handleClick={() =>
+                        setFieldValue("category", category.title)
+                      }
                     />
                   ))}
-
                 </section>
               </div>
               <section className="flex justify-between">
@@ -117,7 +120,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
                     as="select"
                     type="number"
                     name="duration"
-                    className="p-2 mt-1  bg-transparent rounded-xl focus:outline-none font-semibold focus:bg-gray-200"
+                    className="p-2 mt-1  bg-transparent rounded-xl focus:outline-none font-semibold focus:bg-gray-200 dark:text-white dark:focus:bg-zinc-700"
                   >
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -140,9 +143,11 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
                     {/* <p className="text-gray-400">No</p> */}
                     <Switch
                       // checked={enabled}
-                      onChange={() => setFieldValue('urgent', !values.urgent)}
+                      onChange={() => setFieldValue("urgent", !values.urgent)}
                       className={`${
-                        values.urgent ? "bg-red-600" : "bg-gray-200"
+                        values.urgent
+                          ? "bg-red-600"
+                          : "bg-gray-200 dark:bg-zinc-700"
                       } relative inline-flex h-6 w-11 items-center rounded-full transition duration-200`}
                     >
                       <span
@@ -161,7 +166,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
 
               <button
                 type="submit"
-                className="flex align-right border-2 rounded-full py-1 px-6 border-black bg-black text-white  transition transform hover:scale-105 duration-100 active:scale-95 ease-in-out font-bold disabled:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:text-white disabled:border-gray-300"
+                className="flex align-right border-2 rounded-full py-1 px-6 border-black bg-black text-white  transition transform hover:scale-105 duration-100 active:scale-95 ease-in-out font-bold disabled:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:text-white disabled:border-gray-300 dark:disabled:bg-zinc-700 dark:disabled:border-zinc-800 dark:disabled:text-zinc-500 dark:bg-white dark:text-black"
                 disabled={!dirty}
               >
                 Create
