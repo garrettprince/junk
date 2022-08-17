@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import CloseMenuButton from "../components/CloseMenuButton";
 import DarkModeToggle from "../components/DarkModeToggle";
 import KanbanContainer from "../components/KanbanContainer";
 import LevelContainer from "../components/LevelContainer";
 import MenuButton from "../components/MenuButton";
 import OptionsMenu from "../components/OptionsMenu";
+import Sidebar from "../components/Sidebar";
 
 export default function Home() {
   const [theme, setTheme] = useState(null);
@@ -41,9 +43,16 @@ export default function Home() {
         <title>Junk</title>
       </Head>
       <main className="dark:bg-zinc-900 h-screen">
-        {}
-        
-        <MenuButton handleSidebarToggle={handleSidebarToggle} />
+        {!sidebar ? (
+          <MenuButton handleSidebarToggle={handleSidebarToggle} />
+        ) : (
+          <div>
+            {/* <CloseMenuButton handleSidebarToggle={handleSidebarToggle} /> */}
+            <Sidebar handleSidebarToggle={handleSidebarToggle} />
+          </div>
+        )}
+
+        {/* <MenuButton handleSidebarToggle={handleSidebarToggle} /> */}
         {/* <DarkModeToggle handleThemeSwitch={handleThemeSwitch} /> */}
         <KanbanContainer />
         {/* <LevelContainer /> */}

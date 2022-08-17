@@ -1,13 +1,11 @@
+import CloseMenuButton from "./CloseMenuButton";
 
-
-function Sidebar() {
+function Sidebar({ handleSidebarToggle }) {
   return (
-    <div className="top-0 right-0 w-[35vw] bg-blue-600 p-10 pl-20 text-white fixed h-full ">
-      <h2 className="mt-20 text-4xl font-semibold text-white">
-        I am a sidebar
-      </h2>
+    <div className="top-0 left-0 w-96 dark:bg-zinc-800 bg-gray-100 p-10 pl-20 text-white fixed h-full ">
+      <CloseMenuButton handleSidebarToggle={handleSidebarToggle} />
     </div>
   );
 }
 
-export default Sidebar
+export default Sidebar;
