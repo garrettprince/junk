@@ -37,20 +37,34 @@ function KanbanContainer() {
 
       <button
         onClick={openModal}
-        className="flex items-center space-x-2 rounded-full p-4 bg-gray-100 absolute bottom-0 left-0 m-10 transition ease-in-out transform duration-100 hover:scale-105 active:scale-95 dark:bg-zinc-800"
+        className="flex items-center space-x-4 absolute bottom-0 left-0 m-10 transition ease-in-out transform duration-100 hover:scale-105 active:scale-95"
       >
-        <PlusIcon className="h-10 w-10 dark:text-white" />
+        <PlusIcon
+          className="flex h-10 w-10 dark:text-white"
+        />
+        {/* <p className="dark:hover:text-white dark:text-transparent text-[1.7rem] font-semibold">
+          New Task
+        </p> */}
       </button>
 
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
-          transition={{ duration: 3.8, type: 'spring', damping: 25, stiffness: 500 }}
+          transition={{
+            duration: 3.8,
+            type: "spring",
+            damping: 25,
+            stiffness: 500,
+          }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed bg-black/50 inset-0 h-full w-full flex justify-center align-middle"
         >
-          <AddCardModal addCard={addCard} handleClose={closeModal} categoryData={categoryData} />
+          <AddCardModal
+            addCard={addCard}
+            handleClose={closeModal}
+            categoryData={categoryData}
+          />
         </motion.div>
       )}
     </>

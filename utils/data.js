@@ -10,9 +10,9 @@ export const categoryColors = [
     backgroundColor: "rgb(234, 179, 8, 0.1)",
   },
   {
-    title: "lime",
-    color: "rgb(132, 204, 22)",
-    backgroundColor: "rgb(132, 204, 22, 0.1)",
+    title: "green",
+    color: "rgb(34, 197, 94)",
+    backgroundColor: "rgb(34, 197, 94, 0.1)",
   },
   {
     title: "blue",
@@ -36,8 +36,8 @@ export const categoryData = [
     color: "yellow",
   },
   {
-    title: "lime",
-    color: "lime",
+    title: "green",
+    color: "green",
   },
   {
     title: "blue",

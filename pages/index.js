@@ -8,6 +8,7 @@ import OptionsMenu from "../components/OptionsMenu";
 
 export default function Home() {
   const [theme, setTheme] = useState(null);
+  const [sidebar, setSidebar] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -30,14 +31,20 @@ export default function Home() {
     console.log(theme)
   };
 
+  const handleSidebarToggle = () => {
+    setSidebar(!sidebar);
+  }
+
   return (
     <div>
       <Head>
         <title>Junk</title>
       </Head>
       <main className="dark:bg-zinc-900 h-screen">
-        <MenuButton />
-        <DarkModeToggle handleThemeSwitch={handleThemeSwitch} />
+        {}
+        
+        <MenuButton handleSidebarToggle={handleSidebarToggle} />
+        {/* <DarkModeToggle handleThemeSwitch={handleThemeSwitch} /> */}
         <KanbanContainer />
         {/* <LevelContainer /> */}
       </main>
