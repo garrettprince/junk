@@ -4,6 +4,7 @@ import DarkModeToggle from "../components/DarkModeToggle";
 import KanbanContainer from "../components/KanbanContainer";
 import LevelContainer from "../components/LevelContainer";
 import MenuButton from "../components/MenuButton";
+import OptionsMenu from "../components/OptionsMenu";
 
 export default function Home() {
   const [theme, setTheme] = useState(null);

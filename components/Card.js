@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { DotsHorizontalIcon } from "@heroicons/react/solid";
 import { categoryColors } from "../utils/data";
+import OptionsMenu from "./OptionsMenu";
 
 function Card({
   title,
@@ -19,9 +20,15 @@ function Card({
     (category) => category.title === color
   )?.color;
 
+  const [optionsMenu, setOptionsMenu] = useState(false)
+
+  const toggleOptions = () => {
+    setOptionsMenu(!optionsMenu)
+  }
+
   return (
     <div
-      className=" h-max w-[19rem] rounded-2xl border-[6px] cursor-grab m-4 transition-all hover:scale-[1.015] active:scale-100"
+      className=" h-max w-[19rem] rounded-2xl border-[6px] cursor-grab m-4"
       style={{ backgroundColor, borderColor }}
     >
       <header className="flex justify-between items-center mx-4 mt-3">
@@ -66,7 +73,11 @@ function Card({
         <DotsHorizontalIcon
           className="h-6 w-6 cursor-pointer hover:scale-110 transition-all ease-in-out active:scale-95"
           style={{ color: borderColor }}
+          onClick={toggleOptions}
         />
+        {optionsMenu && (
+          <OptionsMenu />
+        )}
       </footer>
     </div>
   );
