@@ -15,16 +15,6 @@ export const categoryColors = [
     backgroundColor: "rgb(132, 204, 22, 0.1)",
   },
   {
-    title: "emerald",
-    color: "rgb(16, 185, 129)",
-    backgroundColor: "rgb(16, 185, 129, 0.1)",
-  },
-  {
-    title: "cyan",
-    color: "rgb(6, 182, 212)",
-    backgroundColor: "rgb(6, 182, 212, 0.1)",
-  },
-  {
     title: "blue",
     color: "rgb(59, 130, 246)",
     backgroundColor: "rgb(59, 130, 246, 0.1)",
@@ -33,11 +23,6 @@ export const categoryColors = [
     title: "purple",
     color: "#a855f7",
     backgroundColor: "#a855f71A",
-  },
-  {
-    title: "pink",
-    color: "rgb(236, 72, 153)",
-    backgroundColor: "rgb(236, 72, 153, 0.1)",
   },
 ];
 
@@ -55,7 +40,7 @@ export const categoryData = [
     color: "lime",
   },
   {
-    title: "BLUE",
+    title: "blue",
     color: "blue",
   },
   {
