@@ -1,38 +1,3 @@
-export const categoryData = [
-  {
-    title: "dev",
-    color: "orange",
-  },
-  {
-    title: "design",
-    color: "yellow",
-  },
-  {
-    title: "lime",
-    color: "lime",
-  },
-  {
-    title: "emerald",
-    color: "emerald",
-  },
-  {
-    title: "cyan",
-    color: "cyan",
-  },
-  {
-    title: "blue",
-    color: "blue",
-  },
-  {
-    title: "purple",
-    color: "purple",
-  },
-  {
-    title: "other",
-    color: "pink",
-  },
-];
-
 export const categoryColors = [
   {
     title: "orange",
@@ -76,6 +41,29 @@ export const categoryColors = [
   },
 ];
 
+export const categoryData = [
+  {
+    title: "dev",
+    color: "orange",
+  },
+  {
+    title: "design",
+    color: "yellow",
+  },
+  {
+    title: "lime",
+    color: "lime",
+  },
+  {
+    title: "BLUE",
+    color: "blue",
+  },
+  {
+    title: "purple",
+    color: "purple",
+  },
+];
+
 export const statusTypes = {
   NOT_STARTED: "Not Started",
   IN_PROGRESS: "In Progress",
@@ -104,7 +92,7 @@ export const mockCards = [
   {
     title: "Test2",
     description: "Another test",
-    category: "other",
+    category: "blue",
     dueDate: "9/1",
     duration: "45",
     urgent: false,
@@ -113,7 +101,7 @@ export const mockCards = [
   {
     title: "Test3",
     description: "Another test",
-    category: "other",
+    category: "blue",
     dueDate: "9/1",
     duration: "45",
     urgent: false,
@@ -122,7 +110,7 @@ export const mockCards = [
   {
     title: "Test4",
     description: "Another test",
-    category: "other",
+    category: "blue",
     dueDate: "9/1",
     duration: "45",
     urgent: false,
