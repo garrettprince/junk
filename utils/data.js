@@ -1,53 +1,53 @@
-export const categoryColors = [
+export const categoryData = [
   {
-    title: "orange",
+    title: "dev",
     color: "#f97516",
     backgroundColor: "#f975161A",
   },
   {
-    title: "yellow",
+    title: "design",
     color: "rgb(234, 179, 8)",
     backgroundColor: "rgb(234, 179, 8, 0.1)",
   },
   {
-    title: "green",
+    title: "copy",
     color: "rgb(34, 197, 94)",
     backgroundColor: "rgb(34, 197, 94, 0.1)",
   },
   {
-    title: "blue",
+    title: "general",
     color: "rgb(59, 130, 246)",
     backgroundColor: "rgb(59, 130, 246, 0.1)",
   },
   {
-    title: "purple",
+    title: "other",
     color: "#a855f7",
     backgroundColor: "#a855f71A",
   },
 ];
 
-export const categoryData = [
-  {
-    title: "dev",
-    color: "orange",
-  },
-  {
-    title: "design",
-    color: "yellow",
-  },
-  {
-    title: "green",
-    color: "green",
-  },
-  {
-    title: "blue",
-    color: "blue",
-  },
-  {
-    title: "purple",
-    color: "purple",
-  },
-];
+// export const categoryData = [
+//   {
+//     title: "dev",
+//     color: "#f97516",
+//   },
+//   {
+//     title: "design",
+//     color: "rgb(234, 179, 8)",
+//   },
+//   {
+//     title: "green",
+//     color: "green",
+//   },
+//   {
+//     title: "blue",
+//     color: "blue",
+//   },
+//   {
+//     title: "purple",
+//     color: "purple",
+//   },
+// ];
 
 export const statusTypes = {
   NOT_STARTED: "Not Started",

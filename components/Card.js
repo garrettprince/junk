@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DotsHorizontalIcon } from "@heroicons/react/solid";
-import { categoryColors } from "../utils/data";
+import { categoryData } from "../utils/data";
 import OptionsMenu from "./OptionsMenu";
 
 function Card({
@@ -12,11 +12,14 @@ function Card({
   urgent,
   color,
 }) {
-  const backgroundColor = categoryColors.find(
+
+  // TODO: Find out how to make this section work for the cards becasue it doesn't now that I removed cardColors and replaced it with categoryData in the data file
+
+  const backgroundColor = categoryData.find(
     (category) => category.title === color
   )?.backgroundColor;
 
-  const borderColor = categoryColors.find(
+  const borderColor = categoryData.find(
     (category) => category.title === color
   )?.color;
 
