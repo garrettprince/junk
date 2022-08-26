@@ -104,7 +104,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
                     <CategoryButton
                       key={category.title}
                       name={category.title}
-                      color={category.color}
+                      categoryColor={category.color}
                       selected={values.category === category.title}
                       handleClick={() =>
                         setFieldValue("category", category.title)

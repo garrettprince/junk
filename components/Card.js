@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DotsHorizontalIcon } from "@heroicons/react/solid";
-import { categoryData } from "../utils/data";
+import { colorData } from "../utils/data";
 import OptionsMenu from "./OptionsMenu";
 
 function Card({
@@ -10,18 +10,11 @@ function Card({
   dueDate,
   duration,
   urgent,
-  color,
+  categoryColor,
 }) {
 
   // TODO: Find out how to make this section work for the cards becasue it doesn't now that I removed cardColors and replaced it with categoryData in the data file
-
-  const backgroundColor = categoryData.find(
-    (category) => category.title === color
-  )?.backgroundColor;
-
-  const borderColor = categoryData.find(
-    (category) => category.title === color
-  )?.color;
+  const { color, backgroundColor } = colorData.find((c) => c.name === categoryColor)
 
   const [optionsMenu, setOptionsMenu] = useState(false)
 
@@ -32,7 +25,7 @@ function Card({
   return (
     <div
       className=" h-max w-[19rem] rounded-2xl border-[6px] cursor-grab m-4"
-      style={{ backgroundColor, borderColor }}
+      style={{ backgroundColor, borderColor: color }}
     >
       <header className="flex justify-between items-center mx-4 mt-3">
         <h1 className="font-semibold text-xl dark:text-white">{title}</h1>
@@ -54,28 +47,28 @@ function Card({
         <div className="flex-col ml-3 leading-4">
           <h2
             className="flex text-sm font-extrabold justify-center"
-            style={{ color: borderColor }}
+            style={{ color: color }}
           >
             {duration}
           </h2>
           <h2
             className="flex text-xs font-extrabold"
-            style={{ color: borderColor }}
+            style={{ color: color }}
           >
             MIN
           </h2>
         </div>
       </section>
       <footer className="flex justify-between mx-4 mt-4 mb-1 content-center">
-        <h2 className="text-sm font-extrabold" style={{ color: borderColor }}>
+        <h2 className="text-sm font-extrabold" style={{ color: color }}>
           {category.toUpperCase()}
         </h2>
-        <h2 className="text-sm font-extrabold" style={{ color: borderColor }}>
+        <h2 className="text-sm font-extrabold" style={{ color: color }}>
           {`DUE ` + dueDate.toUpperCase()}
         </h2>
         <DotsHorizontalIcon
           className="h-6 w-6 cursor-pointer hover:scale-110 transition-all ease-in-out active:scale-95"
-          style={{ color: borderColor }}
+          style={{ color: color }}
           onClick={toggleOptions}
         />
         {optionsMenu && (

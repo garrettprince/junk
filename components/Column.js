@@ -24,7 +24,7 @@ function Column({ name, cards, categoryData }) {
           dueDate={card.dueDate}
           duration={card.duration}
           urgent={card.urgent}
-          color={
+          categoryColor={
             categoryData.find((category) => category.title === card.category)
               ?.color
           }

@@ -5,10 +5,11 @@ import Column from "./Column";
 import { motion } from "framer-motion";
 import { statusTypes, columns, mockCards, categoryData } from "../utils/data";
 
-// Fetch cards from the database, this will replaace mockCards
-
+// Fetch cards from the database, this will replace mockCards
 // 1) fetch data with a useEffect, so that the data fetch call is run upon mount
+
 // 2) Do the same as above, but inside a custom hook
+
 // 3) Use the powers of Next.js and use getServerSideProps
 
 function KanbanContainer() {
