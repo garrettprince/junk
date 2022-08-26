@@ -62,7 +62,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
               type="description"
               name="description"
               placeholder="Description"
-              className=" mb-4 mt-1 py-2 pl-3 bg-transparent w-full h-24  focus:outline-none resize-none border-b-2 border-transparent rounded-xl focus:bg-gray-200 dark:text-white dark:focus:bg-zinc-700"
+              className=" mb-4 mt-1 py-2 px-3 bg-transparent w-full h-24  focus:outline-none resize-none border-b-2 border-transparent rounded-xl focus:bg-gray-200 dark:text-white dark:focus:bg-zinc-700"
             />
             <section className="">
               <div className="flex justify-between  mb-4 mt-1">
