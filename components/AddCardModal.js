@@ -45,6 +45,7 @@ function AddCardModal({ categoryData, addCard, handleClose }) {
         onSubmit={async (values) => {
           addCard(values);
           // post to supabase
+          
           // call refresh function
           handleClose();
         }}

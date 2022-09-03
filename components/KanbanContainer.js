@@ -1,8 +1,9 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { PlusIcon } from "@heroicons/react/solid";
 import AddCardModal from "./AddCardModal";
 import Column from "./Column";
 import { motion } from "framer-motion";
+import { supabase } from "../utils/client";
 import { statusTypes, columns, mockCards, categoryData } from "../utils/data";
 
 // Fetch cards from the database, this will replace mockCards
@@ -14,12 +15,24 @@ import { statusTypes, columns, mockCards, categoryData } from "../utils/data";
 
 function KanbanContainer() {
   const [isOpen, setIsOpen] = useState(false);
-  const [cards, setCards] = useState(mockCards);
+  const [cards, setCards] = useState([]);
 
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
 
-  const addCard = (card) => {
+  useEffect(() => {
+    fetchCards()
+  }, [])
+
+  const fetchCards = async () => {
+    const { data } = await supabase.from('cards').select('*')
+    setCards(data)
+    console.log(data)
+  };
+
+  const addCard = async (card) => {
+    await supabase.from('cards').insert(cards);
+
     setCards([...cards, card]);
   };
 
@@ -40,9 +53,7 @@ function KanbanContainer() {
         onClick={openModal}
         className="flex items-center space-x-4 absolute bottom-0 left-0 m-10 transition ease-in-out transform duration-100 hover:scale-105 active:scale-95"
       >
-        <PlusIcon
-          className="flex h-10 w-10 dark:text-white"
-        />
+        <PlusIcon className="flex h-10 w-10 dark:text-white" />
         {/* <p className="dark:hover:text-white dark:text-transparent text-[1.7rem] font-semibold">
           New Task
         </p> */}
