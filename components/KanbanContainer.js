@@ -21,19 +21,18 @@ function KanbanContainer() {
   const openModal = () => setIsOpen(true);
 
   useEffect(() => {
-    fetchCards()
-  }, [])
+    fetchCards();
+  }, []);
 
   const fetchCards = async () => {
-    const { data } = await supabase.from('cards').select('*')
-    setCards(data)
-    console.log(data)
+    const { data } = await supabase.from("cards").select("*");
+    setCards(data);
+    console.log(data);
   };
 
   const addCard = async (card) => {
-    await supabase.from('cards').insert(cards);
-
     setCards([...cards, card]);
+    await supabase.from("cards").insert(card);
   };
 
   return (
