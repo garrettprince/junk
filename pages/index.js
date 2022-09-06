@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { supabase } from "../utils/client";
-import CloseMenuButton from "../components/CloseMenuButton";
-import DarkModeToggle from "../components/DarkModeToggle";
-import KanbanContainer from "../components/KanbanContainer";
-import LevelContainer from "../components/LevelContainer";
-import MenuButton from "../components/MenuButton";
-import OptionsMenu from "../components/OptionsMenu";
-import Sidebar from "../components/Sidebar";
+import { supabase } from "../lib/utils/client";
+import CloseMenuButton from "../lib/components/CloseMenuButton";
+import DarkModeToggle from "../lib/components/DarkModeToggle";
+import KanbanContainer from "../lib/components/KanbanContainer";
+import LevelContainer from "../lib/components/LevelContainer";
+import MenuButton from "../lib/components/MenuButton";
+import OptionsMenu from "../lib/components/OptionsMenu";
+import Sidebar from "../lib/components/Sidebar";
 
 export default function Home() {
   const [theme, setTheme] = useState(null);
